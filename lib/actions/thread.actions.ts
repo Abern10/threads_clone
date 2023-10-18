@@ -25,7 +25,7 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     })
     .populate({
       path: "community",
-    //   model: Community,
+      // model: Community,
     })
     .populate({
       path: "children", // Populate the children field
@@ -68,7 +68,7 @@ export async function createThread({ text, author, communityId, path }: Params
     const createdThread = await Thread.create({
       text,
       author,
-    //   community: communityIdObject, // Assign communityId if provided, or leave it null for personal account
+      // community: communityIdObject, // Assign communityId if provided, or leave it null for personal account
     });
 
     // Update User model
@@ -85,7 +85,7 @@ export async function createThread({ text, author, communityId, path }: Params
 
     revalidatePath(path);
   } catch (error: any) {
-    throw new Error(`Error creating thread: ${error.message}`);
+    throw new Error(`Failed to create thread: ${error.message}`);
   }
 }
 
