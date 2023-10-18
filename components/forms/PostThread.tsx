@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ThreadValidation } from "@/lib/validations/thread";
-// import { createThread } from "@/lib/actions/thread.actions";
+import { createThread } from "@/lib/actions/thread.actions";
 import {
     Form,
     FormControl,
@@ -36,22 +36,22 @@ function PostThread({ userId }: Props) {
     },
   });
 
-//   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-//     await createThread({
-//       text: values.thread,
-//       author: userId,
-//       communityId: organization ? organization.id : null,
-//       path: pathname,
-//     });
+  const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+    await createThread({
+      text: values.thread,
+      author: userId,
+      communityId: organization ? organization.id : null,
+      path: pathname,
+    });
 
-//     router.push("/");
-//   };
+    router.push("/");
+  };
 
   return (
     <Form {...form}>
       <form
         className='mt-10 flex flex-col justify-start gap-10'
-        // onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
           control={form.control}
