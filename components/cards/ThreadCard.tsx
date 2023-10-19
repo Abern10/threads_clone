@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 
@@ -146,9 +145,10 @@ function ThreadCard({
             {!isComment && community && (
                 <Link
                     href={`/communities/${community.id}`}
-                    className='mt-5 flex items-center'
+                    className='mt-5 flex items-center' 
                 >
-                    <p className='text-subtle-medium text-gray-1'>
+                    <p 
+                        className='text-subtle-medium text-gray-1'>
                         {formatDateString(createdAt)}
                         {community && ` - ${community.name} Community`}
                     </p>
