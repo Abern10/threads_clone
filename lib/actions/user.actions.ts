@@ -75,7 +75,7 @@ export async function fetchUserPosts(userId: string) {
       populate: [
         {
           path: "community",
-        //   model: Community,
+          //   model: Community,
           select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
         },
         {
